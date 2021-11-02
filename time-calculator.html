@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Date Calculator</title>
+    <script src="./app.js"></script>
 </head>
 <body>
     <div align="center">
@@ -33,47 +34,19 @@
         </tr>
     </table>
     
-    <script>
-        function showTime() { 
-            var year=document.getElementById("year").value; 
-            var month=document.getElementById("month").value;
-            var day=document.getElementById("day").value; 
-            var hour=document.getElementById("hour").value; 
-            var minute=document.getElementById("minute").value; 
-            var second=document.getElementById("second").value; 
-            var Time=document.getElementById("Time"); 
-            Time.value=year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second; }
-    </script>
-    
-    <button value="submit" onclick="showTime()">Click Me!</button><br />
-    <input id="Time" /><br />
-    
-    <script>
-        function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
-            t = setTimeout(function () { startTime() }, 500);
-        }
-        function checkTime(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
-    </script>
-    </div>
-    
-    </body>
-    
-    <body onload="startTime()">
+    <button value="submit" onclick="time_to_JD()">Convert to JD</button>
+    <input id="JD" />
+
+    <body onload="time_now()">
     
     <div align="center" id="clock"></div>
-    
+
     </body>
-</div>
+    
+    <button value="submit" onclick="time_now_to_JD()">Convert current time to JD</button>
+    
+    <input id="JD_now" />
+
+    </div>
+</body>
 </html>
